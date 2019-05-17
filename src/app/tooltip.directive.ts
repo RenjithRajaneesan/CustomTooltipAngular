@@ -23,6 +23,7 @@ export class TooltipDirective implements OnInit{
       event.stopPropagation();
       this.hideAllTooltip();
       (this.el.nativeElement.parentNode.querySelector('.tooltiptext')).style.display='block';
+       ((this.el.nativeElement.parentNode.querySelector('.tooltiptext')) as HTMLElement).innerHTML = this.el.nativeElement.getAttribute('appTooltipText');
     }
     /*Hide all Tooltip when Esc key is pressed*/
     @HostListener('document:keydown.escape', ['$escevent']) onKeydownHandler(evt: KeyboardEvent) {
